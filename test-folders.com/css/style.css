@@ -1,0 +1,111 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+#items{
+	list-style:none;
+	margin:0px;
+	margin-top:4px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-bottom:3px;
+	font-size:17px;
+	color: #333333;
+	
+  }
+  
+  hr { 
+	width: 85%; 
+	background-color:#E4E4E4;
+	border-color:#E4E4E4;
+	color:#E4E4E4;
+  }
+
+  #cntnr{
+	display:none;
+	position:fixed;
+    width:150px;
+    background:#F9F9F9;
+	border-radius:4px;
+  }
+  
+  li{	
+	padding: 3px;
+	padding-left:10px;
+  }
+  
+  
+  #items :hover{
+	color: white;
+	background:#284570;
+	border-radius:2px;
+  }
+
+
+  #background-image{
+	max-width:100%;
+	max-height:100%;
+	user-select: none;
+  }
+
+  .folder{
+	height: 10%;
+	width: 4%;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	overflow: hidden;
+  }
+/*.folder :hover makes a difference, wtf*/
+  .folder:hover{
+	  opacity: 0.5;
+	color: white;
+	background:#284570;
+	border-radius:2px;
+  }
+/*same here*/
+  .folder:active{
+	opacity: 1;
+	color: white;
+	background:blue;
+	border-radius:2px;
+  }
+
+  .img-cntnr{
+	position: relative;
+	height: 80%;
+	width: 100%;
+  }
+
+  .fimage{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+  }
+
+  .name-cntnr{
+	overflow: hidden; 
+	text-align: center;
+	word-wrap: break-word;
+	height: 100%;
+	width: 100%;
+	display: inline-block;
+  }
+
+  .fname{
+	padding-top: 0;
+	padding-left: 5%;
+	padding-right: 5%;
+	margin: 0;
+	font-size: 90%;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+
+  .selected{
+	overflow: visible;
+	background-color: #284570;
+	height: auto;
+  }
