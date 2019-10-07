@@ -43,32 +43,23 @@ window.onload = function() {
 
 
 
-          var select = true;
+      var notSelected = true;
 
-           switch(select){
+$(".folder").click(function () {
+    if (notSelected) {
+        $(this).toggleClass("selected");
+        notSelected = false;
+        console.log(notSelected + ", folder");
+    }
+});
 
-            case true:
-                $( ".folder" ).click(function() {
-                $( ".folder" ).toggleClass( "selected" ); //inace je addClass(), al je toggle sad for testing purposes
-                select = false;
-                 console.log(select);
-           });
-                      
-           break;
-
-           case false:
-                $(document).click(function() {
-                $( ".folder" ).removeClass( "selected" );
-                select = true;
-                console.log(select);
-           });
-
-           break;
-          } 
+$(document).click(function () {
+    if (notSelected) {
+        $(".folder").removeClass("selected");
+        console.log(notSelected);
         
-
-           
-
+    } else notSelected = true;
+});
 
 };
 
