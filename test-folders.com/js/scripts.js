@@ -25,10 +25,6 @@ function getSelectedText() {
     $(document).bind("contextmenu",function(e){
         e.preventDefault();
 
-        /* $("#cntnr").remove();
-        var large = '<div id="cntnr"><ul id="items"><li id="copy">Copy</li>            <li id="paste">Paste</li>            <li id="delete">Delete</li>            </ul>          <hr />          <ul id="items">            <li id="new">New</li>          </ul>          <hr />          <ul id="items">            <li id="personalize">Personalize</li>            <li id="properties">Properties</li>            </ul>        </div>';
-        $('body').append(large); */
-
         $("#cntnr").fadeIn(200,startFocusOut());
 
         if(e.pageX > window.innerWidth - document.getElementById("cntnr").offsetWidth){
@@ -53,9 +49,12 @@ function getSelectedText() {
         });
       }
 
+
+
       $("#items > li").click(function(){
           switch(this.id){
               case "copy":
+                    //document.getElementById("myText").focus();
                   console.log("In development");
                  // document.execCommand("copy");
                   console.log("You have selected "+$(this).text());
