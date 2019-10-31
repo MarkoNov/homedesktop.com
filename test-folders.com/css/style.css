@@ -1,7 +1,9 @@
-html, body{
+body{
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+	background-size: 100%;
+	background-image: url("https://wallpaperplay.com/walls/full/9/f/c/34779.jpg");
 }
 /* width */
 ::-webkit-scrollbar {
@@ -11,7 +13,7 @@ html, body{
   /* Track */
   ::-webkit-scrollbar-track {
 	box-shadow: inset 0 0 5px grey; 
-  border-radius: 0 25px 25px 25px; 
+  border-radius: 0 0 25px 25px; 
   }
    
   /* Handle */
@@ -50,7 +52,7 @@ html, body{
     width:150px;
     background:#F9F9F9;
 	border-radius:4px;
-	z-index: 999999;
+	z-index: 9999999;
   }
   
   li{	
@@ -65,14 +67,7 @@ html, body{
 	border-radius:2px;
   }
 
-
-  #background-image{
-	max-width:100%;
-	max-height:100%;
-	user-select: none;
-  }
-
-  #taskbar{
+/*   #taskbar{
 	  position: absolute;
 	  z-index: 999999;
 	  background-color: #284570;
@@ -81,15 +76,15 @@ html, body{
 	  width: 100%;
 	  height: 5vh;
 	  opacity: 0.9;
-  }
+  } */
 
   .folder{
-	height: 10%;
-	width: 4%;
-	position: absolute;
-	left: 10px;
-	top: 10px;
+	position: relative;
 	overflow: hidden;
+	margin: 0.5%;
+	float: top;
+	height: 10vh;
+	width: 5vw;
   }
 /*.folder :hover makes a difference, wtf*/
   .folder:hover{
@@ -115,14 +110,14 @@ html, body{
   .fimage{
 	height: 100%;
 	width: 100%;
-	object-fit: cover;
+	object-fit: scale-down;
   }
 
   .name-cntnr{
 	overflow: hidden; 
 	text-align: center;
 	word-wrap: break-word;
-	height: 100%;
+	height: 2.5vh;
 	width: 100%;
 	display: inline-block;
   }
@@ -132,18 +127,18 @@ html, body{
 	padding-left: 5%;
 	padding-right: 5%;
 	margin: 0;
-	font-size: 90%;
+	font-size: 85%;
 	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
 
   .selected{
-	overflow: visible;
+	overflow: visible; 
 	background-color: #284570;
 	height: auto;
   }
 
-  .window{
+  .window-frame{
 	padding: 0;
 	margin: 0;
 	position: absolute;
@@ -161,8 +156,8 @@ html, body{
 	min-height: 50px;
 	min-width: 100px;
 	border-radius: 10px 10px 10px 10px;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	overflow: hidden;
+	display: none;
 }
 
 .full-size-window{
@@ -215,12 +210,22 @@ html, body{
   background-color: rgb(18, 112, 150);
 }
 
+.window{
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
 .subfolder{
-	padding: 2%;
-	float: left;
-	overflow: hidden;
-	top: 50px;
-	left: 20px;
-	height: 20%;
-	width: 10%;
+	position: relative;
+	padding: 1%;
+	float: left;	
+	top: 2%;
+	left: 2%;
+	height: 14vh;
+	width: 6vw;
 }
