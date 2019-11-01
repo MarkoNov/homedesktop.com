@@ -57,15 +57,23 @@ window.onload = function() {
   
                   break;
   
-              case "new":
-                  var newfname = prompt("Please enter a name");
-  
-                  for(var i=1; !(newfname != null && /^[a-z0-9]+$/i.test(newfname) && uniqueName(newfname)); i++){
-                  newfname = prompt("This name is already in use or invalid. Please enter a new name");
-                  }
-                  $('body').append('<div class="folder" id="'+newfname+'-folder" title="'+newfname+'"><div class="img-cntnr"><img class="fimage" src="https://muw.instructure.com/courses/3388/files/128349/preview?verifier=KZ3WzNSTit0feCcW21pemx75UxOt9q52atBqtDtP" /></div><div class="name-cntnr"><p class="fname">'+newfname+'</p></div></div>').on("DOMNodeInserted", Folder_manip(newfname));
-                  $('body').append('<div class="window-frame" id="'+newfname+'-window"><div class="manage-window" title="'+newfname+'-window"><div class="buttons"><div class="close-button">   </div><div class="window-button">  </div><div class="minimize-button"></div></div></div><div class="window"></div></div>').on("DOMNodeInserted", Window_manip(newfname));                                            
-                  break;
+                  case "new":
+                    var newfname = prompt("Please enter a name");
+    
+                    for(var i=1; !(newfname != "" && /^[a-z0-9]+$/i.test(newfname) && uniqueName(newfname)); i++){
+    
+                      if(newfname===null){
+                        break;
+                      }
+                      else{
+                      newfname = prompt("This name is already in use or invalid. Please enter a new name");
+                      }
+                    }
+                    if(newfname != null){
+                    $('body').append('<div class="folder" id="'+newfname+'-folder" title="'+newfname+'"><div class="img-cntnr"><img class="fimage" src="https://muw.instructure.com/courses/3388/files/128349/preview?verifier=KZ3WzNSTit0feCcW21pemx75UxOt9q52atBqtDtP" /></div><div class="name-cntnr"><p class="fname">'+newfname+'</p></div></div>').on("DOMNodeInserted", Folder_manip(newfname));
+                    $('body').append('<div class="window-frame" id="'+newfname+'-window"><div class="manage-window" title="'+newfname+'-window"><div class="buttons"><div class="close-button">   </div><div class="window-button">  </div><div class="minimize-button"></div></div></div><div class="window"></div></div>').on("DOMNodeInserted", Window_manip(newfname));                                            
+                    }
+                    break;
           }
         
         });
