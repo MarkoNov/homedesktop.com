@@ -1,6 +1,6 @@
 window.onload = function() {
 
-  var maxZ=100; //add seperate max z-index for folders and windows
+  var maxZ=1000; //add seperate max z-index for folders and windows
   
   function uniqueName(test_name){
     if(document.getElementById(test_name+"-folder") != null || document.getElementById(test_name+"-window") != null || document.getElementById(test_name+"-file") != null){
@@ -11,9 +11,14 @@ window.onload = function() {
     }
   }
   
+  function fixOffScreenFolder(){
+    while((mouseX + 0.055*window.innerWidth) > window.innerWidth){mouseX--;}
+    while((mouseY + 0.115*window.innerHeight) > window.innerHeight){mouseY--;}
+  }
+  
     $(document).bind("contextmenu",function(e){
         e.preventDefault();
-  
+        mouseX = e.clientX, mouseY = e.clientY; //used when creating folders
         $("#cntnr").fadeIn(200,startFocusOut());
   
         if(e.pageX > window.innerWidth - document.getElementById("cntnr").offsetWidth){
@@ -37,7 +42,8 @@ window.onload = function() {
         });
       }
   
-      $("#items > li").click(function(){
+      $("#items > li").click(function(event){
+        
         switch(this.id){
             case "copy":
                 console.log("In development");
@@ -70,7 +76,8 @@ window.onload = function() {
                   }
                 }
                 if(newfname != null){//add path to ID
-                  $('body').append('<div class="folder" id="'+newfname+'-folder" title="'+newfname+'"><div class="img-cntnr"><img class="fimage" src="https://muw.instructure.com/courses/3388/files/128349/preview?verifier=KZ3WzNSTit0feCcW21pemx75UxOt9q52atBqtDtP" /></div><div class="name-cntnr"><p class="fname">'+newfname+'</p></div></div>').on("DOMNodeInserted", Folder_manip(newfname));
+                  fixOffScreenFolder();
+                  $('body').append('<div class="folder" id="'+newfname+'-folder" title="'+newfname+'" style="left: '+mouseX+'px; top: '+mouseY+'px"><div class="img-cntnr"><img class="fimage" src="https://muw.instructure.com/courses/3388/files/128349/preview?verifier=KZ3WzNSTit0feCcW21pemx75UxOt9q52atBqtDtP" /></div><div class="name-cntnr"><p class="fname">'+newfname+'</p></div></div>').on("DOMNodeInserted", Folder_manip(newfname));
                   $('body').append('<div class="window-frame" id="'+newfname+'-window"><div class="manage-window" title="'+newfname+'-window"><div class="buttons"><div class="close-button">   </div><div class="window-button">  </div><div class="minimize-button"></div></div></div><div class="window"></div></div>').on("DOMNodeInserted", Window_manip(newfname));                                            
                 }
   
@@ -85,18 +92,19 @@ window.onload = function() {
   
     $(ID).draggable({       
       obstacle: ".folder", //it no work, z-index probs.
-      containment: "document",
+      containment: "window",
       snap: ".folder", //remove snap when hovering over window
+      //snapMode: "outer", //works, but doesn't snap cleanly around anymore
       preventCollision: true, //You thought it was a working piece of code, but it was me, DIO! probs. also zIndex
       //grid: [($(".folder").css("width")).toString().replace("px", ""), ($(".folder").css("height")).toString().replace("px", "")], //nez dal je problem grid ili css
-      scroll: false
+      scroll: false,
     });
   //https://greensock.com/forums/topic/11870-draggable-hittest-multiple-elements/
     $(ID).dblclick(function () { 
       maxZ++;       
       $("#" + name + "-window").css({"display":"block", "z-index":maxZ});        
   });
-  
+  //add $(ID).selectable
   }
   
   function Window_manip(name){
