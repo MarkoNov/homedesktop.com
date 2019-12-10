@@ -224,5 +224,6 @@
     e.stopPropagation(); // added this
    });
 
-
+   Folder_manip("test");
+   Window_manip("test");
 };
