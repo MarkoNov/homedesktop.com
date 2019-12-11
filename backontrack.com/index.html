@@ -157,10 +157,16 @@
                         </tr>
                         <tr>
                             <td>
+                                <img src="https://icon-library.net/images/help-icon-png/help-icon-png-25.jpg" />
+                                <a>Get Help</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <img src="https://winaero.com/blog/wp-content/uploads/2018/11/Google-Chrome-icon-big-256.png" />
                                 <a>Google Chrome</a>
                             </td>
-                        </tr>
+                        </tr>                   
                     </table>
                 </div>
             </div>
@@ -246,10 +252,40 @@
                 </table>
         </div>
         
+        <button id="login" onclick="document.getElementById('id01').style.display='block'">
+            Sign in | Sign up <br />To get full access
+        </button>
+
+        
+        <div id="id01" class="modal">
+        
+          <form class="modal-content animate" method="post">
+        
+            <div class="container">
+              <label for="uname"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="uname" required>
+            
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+
+              <button type="submit">Login</button>
+              <label id="remember">
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+            </div>
+        
+            <div class="container" style="background-color:transparent">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+
         <footer id="taskbar">
             <span id="windows"><i class="fa fa-windows" aria-hidden="true"></i></span>
-            <span id="search"><i class="fa fa-search" aria-hidden="true"></i> Type here to search</span>
+            <!-- <span id="search"><i class="fa fa-search" aria-hidden="true"></i> Type here to search</span> -->
             <span id="taskbar-folder"><img src="https://muw.instructure.com/courses/3388/files/128349/preview?verifier=KZ3WzNSTit0feCcW21pemx75UxOt9q52atBqtDtP" /></span>
+            <span id="taskbar-chrome"><img src="https://winaero.com/blog/wp-content/uploads/2018/11/Google-Chrome-icon-big-256.png" /></span>
             <span style="font-size:30px;cursor:pointer;float:right;" id="notifications"><i class="fa fa-comment-o" aria-hidden="true"></i></span>
         </footer>
 

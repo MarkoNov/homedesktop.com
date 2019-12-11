@@ -105,8 +105,8 @@
         $(ID).removeClass("subfolder");
         //$(ID).css({"position": "absolute", "left": "750px", "top": "250px"});
         $(ID).addClass("dragged");
-        $(ID).appendTo($("body"));
-        $("#"+name+"-window").appendTo($("body"));
+        $(ID).appendTo($("#body"));
+        $("#"+name+"-window").appendTo($("#body"));
         }
       },
       stop: function(){
@@ -193,6 +193,14 @@
       $(".folder").removeClass("selected");
               $(".name-cntnr").css("height", "2.5vh");
   */
+
+  var modal = document.getElementById('id01');
+  
+  window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}//NANI!?
 
   $("#notifications").click(function(){$("#mySidenav").toggleClass("shownotifications")});
 
